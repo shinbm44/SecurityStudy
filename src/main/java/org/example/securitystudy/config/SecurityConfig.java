@@ -34,6 +34,15 @@ public class SecurityConfig {
                 // 효력을 잃는다.
 
 
+        http
+                .formLogin((auth) -> auth.loginPage("/login")
+                        .loginProcessingUrl("/loginProc")
+                        .permitAll()
+                );
+
+        http
+                .csrf((auth) -> auth.disable());
+
         return http.build();
         // 마지막에 http.build()로 http 객체를 리턴해준다.
     }
