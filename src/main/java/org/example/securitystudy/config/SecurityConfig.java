@@ -30,7 +30,7 @@ public class SecurityConfig {
                         // hasAnyRole은 특정 role을 다수 설정 가능함.
                         // authenticated는 로그인만 진행하면 모두 접근 가능
                         // denyAll은 로그인을 진행해도 접근하지 못하도록 만든다.
-                        .requestMatchers("/", "/login").permitAll()
+                        .requestMatchers("/", "/login", "/join", "joinProc").permitAll()
                         .requestMatchers("/admin").hasRole("ADMIN")
                         .requestMatchers("/my/**").hasAnyRole("ADMIN", "USER")
                         // 위에서 처리하지 못한 나머지 경로 처리하려면 anyRequest()를 쓰자

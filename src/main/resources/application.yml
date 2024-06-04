@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: SecurityStudy
+
+  datasource:
+    driver-class-name: ${driver-name}
+    url: ${data.url}
+    username: ${username}
+    password: ${password}
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
