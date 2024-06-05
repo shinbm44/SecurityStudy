@@ -19,11 +19,16 @@ public class JoinService {
     public void JoinProcess(JoinDTO joinDTO) {
 
         //db에 동일한 username이 존재하는지 확인 필요
+        boolean isExists = userRepository.existsByUsername(joinDTO.getUsername());
+        if(isExists) {
+            return;
+        }
+
 
         UserEntity data = new UserEntity();
-        data.setUsername(bCryptPasswordEncoder.encode(joinDTO.getUsername()));
-        data.setPassword(joinDTO.getPassword());
-        data.setRole("ROLE_USER");
+        data.setUsername(joinDTO.getUsername());
+        data.setPassword(bCryptPasswordEncoder.encode(joinDTO.getPassword()));
+        data.setRole("ROLE_ADMIN");
 
 
         userRepository.save(data);

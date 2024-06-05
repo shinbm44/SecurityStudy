@@ -26,7 +26,7 @@ public class JoinController {
 
         joinService.JoinProcess(joinDTO);
 
-        return "redirect:/join";
+        return "redirect:/login";
     }
 
 
